@@ -1,0 +1,135 @@
+hostname r1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+ --More--
+*Sep  8 18:06:29.863: %SYS-5-CONFIG_I: Configured from console !        e
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+
+!
+!
+!
+ipv6 unicast-routing
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+multilink bundle-name authenticated
+!
+!
+!
+!
+license udi pid ISR4321/K9 sn FDO21400XZX
+!
+spanning-tree extend system-id
+!
+!
+redundancy
+ mode none
+!
+!
+vlan internal allocation policy ascending
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.1.1.18 255.255.255.252
+ ip ospf 10 area 0
+ ipv6 address FE80::2 link-local
+ ipv6 address 2001:DB8:ACAD:5::2/64
+ ipv6 ospf 10 area 0
+!
+interface GigabitEthernet0/0/0
+ ip address 10.1.1.1 255.255.255.252
+ ip ospf 10 area 0
+ negotiation auto
+ ipv6 address FE80::1 link-local
+ ipv6 address 2001:DB8:ACAD:1::1/64
+ ipv6 ospf 10 area 0
+!
+interface GigabitEthernet0/0/1
+ no ip address
+ ip ospf 10 area 0
+ negotiation auto
+!
+interface Serial0/1/0
+ no ip address
+ shutdown
+!
+interface Serial0/1/1
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0
+ vrf forwarding Mgmt-intf
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 10
+ network 10.1.1.0 0.0.0.3 area 0
+ network 10.1.1.16 0.0.0.3 area 0
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+ip tftp source-interface GigabitEthernet0
+!
+!
+ipv6 route 2001:DB8:ACAD:5::/64 GigabitEthernet0/0/1
+ipv6 route ::/0 GigabitEthernet0/0/1
+ipv6 router ospf 1
+ router-id 1.1.1.1
+!
+ipv6 router ospf 10
+ router-id 1.1.1.1
+!
+!
+!
+!
+control-plane
+!
+!
+line con 0
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ login
+!
+!
+end

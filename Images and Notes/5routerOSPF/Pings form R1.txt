@@ -1,0 +1,54 @@
+r1#ping 10.1.1.18
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.18, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+
+r1#ping 10.1.1.17
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.17, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+
+r1#ping 10.1.1.14
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.14, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+
+r1#ping 10.1.1.13
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.13, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+
+r1#ping 10.1.1.10
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.10, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+
+r1#ping 10.1.1.9
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.9, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+
+r1#ping 10.1.1.6
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.6, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+
+r1#ping 10.1.1.2
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+
+r1#ping 10.1.1.1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.1.1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/1 ms
+

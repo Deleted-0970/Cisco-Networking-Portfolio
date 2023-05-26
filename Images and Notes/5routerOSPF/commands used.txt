@@ -1,0 +1,27 @@
+en 
+config t
+router ospf 10
+router-id 1.1.1.1
+network 10.1.1.0 0.0.0.3 area 0
+network 10.1.1.18 0.0.0.3 area 0
+
+ipv6 unicast-routing
+
+ipv6 router ospf 10
+router-id 1.1.1.1
+
+int g0/0/0 
+ip address 10.1.1.1 255.255.255.252
+ip ospf 10 area 0
+no shut
+ipv6 address 2001:db8:acad:1::1/64
+ipv6 address fe80::1 link-local
+ipv6 ospf 10 area 0
+
+
+int g0/0/1
+ip address 10.1.1.18 255.255.255.252
+ip ospf 10 area 0
+no shut
+ipv6 address 2001:db8:acad:5::2/64
+ipv6 address fe80::2 link-local
