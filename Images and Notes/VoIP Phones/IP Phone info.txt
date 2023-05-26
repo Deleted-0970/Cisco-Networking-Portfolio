@@ -1,0 +1,9 @@
+Cisco IP Phone 7940
+
+find version of call manager express on the router
+
+phone 1
+Mac - 001d.a219.fa62
+
+phone 2
+mac - 0015.2b47.6685

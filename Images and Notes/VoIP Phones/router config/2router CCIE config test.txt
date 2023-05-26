@@ -1,0 +1,278 @@
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+logging message-counter syslog
+!
+no aaa new-model
+memory-size iomem 10
+no network-clock-participate slot 1
+!
+dot11 syslog
+ip source-route
+!
+!
+no ip cef
+ip dhcp excluded-address 192.168.10.1 192.168.10.5
+ip dhcp excluded-address 192.168.20.1 192.168.20.5
+!
+ip dhcp pool VOICE20
+   network 192.168.20.0 255.255.255.0
+   default-router 192.168.20.1
+   option 150 ip 192.168.20.1
+!
+!
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+voice service voip
+ allow-connections sip to sip
+ sip
+  bind control source-interface FastEthernet00.20
+  bind media source-interface FastEthernet00.20
+  registrar server
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+voice register global
+ mode cme
+ source-address 192.168.20.1 port 5060
+ max-dn 144
+ max-pool 42
+ load 7960-7940 P00308000500.loads
+ authenticate register
+ authenticate realm all
+ tftp-path flash
+ create profile sync 0011210084343197
+!
+voice register dn  1
+ number 5001005
+ name AKSHAT SMELLS LOL
+!
+voice register pool  1
+ id mac 0015.2B47.6685
+ type 7960
+ number 1 dn 1
+ username faker password FakersMother1
+ codec g711ulaw
+ no vad
+!
+!
+!
+voice-card 0
+ dspfarm
+ dsp services dspfarm
+!
+voice-card 1
+ no dspfarm
+!
+!
+!
+!
+!
+vtp domain cisco
+vtp mode transparent
+archive
+ log config
+  hidekeys
+!
+!
+!
+!
+!
+vlan 2,10,20
+!
+vlan 996
+ name CUSTOMER_NATIVE
+!
+!
+!
+!
+!
+interface FastEthernet00
+ ip address dhcp
+ duplex auto
+ speed auto
+!
+interface FastEthernet00.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
+!
+interface FastEthernet00.50
+ encapsulation dot1Q 50 native
+!
+interface FastEthernet01
+ ip address dhcp
+ duplex auto
+ speed auto
+ random-detect
+!
+interface FastEthernet000
+!
+interface FastEthernet001
+!
+interface FastEthernet002
+!
+interface FastEthernet003
+!
+interface Serial010
+ no ip address
+ shutdown
+!
+interface Serial020
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Serial021
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Serial030
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Serial031
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip forward-protocol nd
+ip route 0.0.0.0 0.0.0.0 FastEthernet01
+no ip http server
+no ip http secure-server
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+tftp-server P00308000500.sbn
+tftp-server P00308000500.loads
+tftp-server flashP00308000500.bin alias P00308000500
+tftp-server flashP00308000500.sb2
+!
+control-plane
+!
+!
+!
+voice-port 100
+ connection plar opx 1010
+ caller-id enable
+!
+voice-port 101
+!
+voice-port 102
+!
+voice-port 103
+!
+voice-port 110
+!
+voice-port 111
+!
+!
+!
+sccp local FastEthernet00.20
+sccp ccm 192.168.20.1 identifier 1 version 6.0
+sccp
+!
+sccp ccm group 1
+ bind interface FastEthernet00.20
+ associate ccm 1 priority 1
+ associate profile 1 register mtp00181969a2e0
+ keepalive retries 5
+!
+dspfarm profile 1 transcode
+ codec g711ulaw
+ codec g711alaw
+ codec g729ar8
+ codec g729abr8
+ codec g729r8
+ maximum sessions 2
+ associate application SCCP
+ shutdown
+!
+!
+dial-peer voice 1 pots
+ destination-pattern 91425.......
+ port 100
+!
+!
+!
+!
+telephony-service
+ sdspfarm units 1
+ sdspfarm transcode sessions 2
+ sdspfarm tag 1 mtp00181969a2e0
+ load 7960-7940 P00308000500
+ max-ephones 3
+ max-dn 2
+ ip source-address 192.168.20.1 port 2000
+ auto assign 1 to 2
+ system message akshat is smelly
+ cnf-file location flash
+ max-conferences 8 gain -6
+ transfer-system full-consult
+ create cnf-files version-stamp 7960 jan 01 105430
+!
+!
+ephone-dn  1
+ number 1010
+!
+!
+ephone-dn  2
+ number 1020
+!
+!
+ephone  1
+ device-security-mode none
+ mac-address 001D.A219.FA62
+ type 7940
+ button  12
+!
+!
+!
+ephone  2
+ device-security-mode none
+ mac-address 0015.2B47.6685
+ type 7960
+ button  11
+!
+!
+!
+line con 0
+line aux 0
+line vty 0 4
+ login
+!
+scheduler allocate 20000 1000
+ntp update-calendar
+ntp server 94.125.132.7 source FastEthernet01
+ntp server time.google.com
+end

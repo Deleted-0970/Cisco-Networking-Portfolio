@@ -1,0 +1,16 @@
+two phones connected in a LAN currently functional 
+
+ping across two networks with dhcp?
+
+things to try/do:
+-test config on packet tracer
+
+-dhcp ip helper address to attach to connect to WAN
+https://www.connecteddots.online/resources/cisco-reference/ip-helper-address 
+ipconfig /all
+
+phone 1
+Mac - 001d.a219.fa62
+
+phone 2
+mac - 0015.2b47.6685

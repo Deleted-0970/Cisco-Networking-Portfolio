@@ -1,0 +1,203 @@
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+logging message-counter syslog
+!
+no aaa new-model
+memory-size iomem 25
+no network-clock-participate slot 1
+!
+dot11 syslog
+ip source-route
+!
+!
+ip cef
+ip dhcp excluded-address 10.0.10.1 10.0.10.9
+!
+ip dhcp pool VOICE_VLAN_DHCP
+   network 10.0.10.0 255.255.255.0
+   default-router 10.0.10.1
+   option 150 ip 10.0.10.1
+!
+ip dhcp pool DATA_VLAN_DHCP
+   network 10.0.20.0 255.255.255.0
+   default-router 10.0.20.1
+   dns-server 8.8.8.8
+!
+!
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+voice-card 0
+ no dspfarm
+!
+voice-card 1
+ no dspfarm
+!
+!
+!
+!
+!
+vtp domain CCNP
+vtp mode transparent
+archive
+ log config
+  hidekeys
+!
+!
+!
+!
+!
+vlan 2,10,20
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 192.168.0.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 10.0.10.1 255.255.255.0
+!
+interface FastEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 10.0.20.1 255.255.255.0
+!
+interface FastEthernet0/1
+ ip address 10.0.0.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0/0
+!
+interface FastEthernet0/0/1
+!
+interface FastEthernet0/0/2
+!
+interface FastEthernet0/0/3
+!
+interface Serial0/1/0
+ no ip address
+ shutdown
+!
+interface Serial0/2/0
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Serial0/2/1
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Serial0/3/0
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Serial0/3/1
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Vlan1
+ no ip address
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+voice-port 1/0/0
+!
+voice-port 1/0/1
+!
+voice-port 1/0/2
+!
+voice-port 1/0/3
+!
+voice-port 1/1/0
+!
+voice-port 1/1/1
+!
+!
+!
+!
+!
+!
+!
+!
+telephony-service
+ max-ephones 2
+ max-dn 144
+ ip source-address 10.0.10.1 port 2000
+ max-conferences 8 gain -6
+ transfer-system full-consult
+ create cnf-files version-stamp Jan 01 2002 00:00:00
+!
+!
+ephone-dn  1
+ number 1111
+!
+!
+ephone-dn  2
+ number 2222
+ trunk 1111
+!
+!
+ephone  1
+ device-security-mode none
+ mac-address 0015.62B5.E72C
+ button  1:1
+!
+!
+!
+ephone  2
+ device-security-mode none
+!
+!
+!
+line con 0
+line aux 0
+line vty 0 4
+ login
+!
+scheduler allocate 20000 1000
+end
