@@ -1,0 +1,92 @@
+From PC0(1)
+
+C:\Users\user>ping 10.0.0.2
+
+Pinging 10.0.0.2 with 32 bytes of data:
+Reply from 10.0.0.2: bytes=32 time<1ms TTL=255
+Reply from 10.0.0.2: bytes=32 time<1ms TTL=255
+Reply from 10.0.0.2: bytes=32 time<1ms TTL=255
+Reply from 10.0.0.2: bytes=32 time<1ms TTL=255
+
+Ping statistics for 10.0.0.2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+C:\Users\user>ping 10.1.1.1
+
+Pinging 10.1.1.1 with 32 bytes of data:
+Reply from 10.1.1.1: bytes=32 time<1ms TTL=255
+Reply from 10.1.1.1: bytes=32 time<1ms TTL=255
+Reply from 10.1.1.1: bytes=32 time<1ms TTL=255
+Reply from 10.1.1.1: bytes=32 time<1ms TTL=255
+
+Ping statistics for 10.1.1.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+C:\Users\user>ping 10.1.1.2
+
+Pinging 10.1.1.2 with 32 bytes of data:
+Reply from 10.1.1.2: bytes=32 time<1ms TTL=254
+Reply from 10.1.1.2: bytes=32 time<1ms TTL=254
+Reply from 10.1.1.2: bytes=32 time<1ms TTL=254
+Reply from 10.1.1.2: bytes=32 time<1ms TTL=254
+
+Ping statistics for 10.1.1.2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+C:\Users\user>ping 10.1.1.5
+
+Pinging 10.1.1.5 with 32 bytes of data:
+Reply from 10.1.1.5: bytes=32 time<1ms TTL=254
+Reply from 10.1.1.5: bytes=32 time<1ms TTL=254
+Reply from 10.1.1.5: bytes=32 time=1ms TTL=254
+Reply from 10.1.1.5: bytes=32 time<1ms TTL=254
+
+Ping statistics for 10.1.1.5:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 1ms, Average = 0ms
+
+C:\Users\user>ping 10.1.1.6
+
+Pinging 10.1.1.6 with 32 bytes of data:
+Reply from 10.1.1.6: bytes=32 time<1ms TTL=253
+Reply from 10.1.1.6: bytes=32 time<1ms TTL=253
+Reply from 10.1.1.6: bytes=32 time=1ms TTL=253
+Reply from 10.1.1.6: bytes=32 time<1ms TTL=253
+
+Ping statistics for 10.1.1.6:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 1ms, Average = 0ms
+
+C:\Users\user>ping 10.0.1.2
+
+Pinging 10.0.1.2 with 32 bytes of data:
+Reply from 10.0.1.2: bytes=32 time<1ms TTL=253
+Reply from 10.0.1.2: bytes=32 time<1ms TTL=253
+Reply from 10.0.1.2: bytes=32 time<1ms TTL=253
+Reply from 10.0.1.2: bytes=32 time<1ms TTL=253
+
+Ping statistics for 10.0.1.2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+C:\Users\user>ping 10.0.1.1
+
+Pinging 10.0.1.1 with 32 bytes of data:
+Reply from 10.0.1.1: bytes=32 time=1ms TTL=125
+Reply from 10.0.1.1: bytes=32 time=1ms TTL=125
+Reply from 10.0.1.1: bytes=32 time=1ms TTL=125
+Reply from 10.0.1.1: bytes=32 time=1ms TTL=125
+
+Ping statistics for 10.0.1.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 1ms, Average = 1ms

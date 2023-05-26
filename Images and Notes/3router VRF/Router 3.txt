@@ -1,0 +1,166 @@
+hostname R3
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!
+no aaa new-model
+!
+ip vrf OSPF10
+!
+ip vrf OSPF20
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+
+!
+!
+!
+ipv6 unicast-routing
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+vtp domain cisco
+vtp mode transparent
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+license udi pid ISR4321/K9 sn FDO214420HY
+license boot level securityk9
+!
+spanning-tree extend system-id
+!
+!
+redundancy
+ mode none
+!
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+vlan 10,20
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+ no ip address
+ negotiation auto
+ no shutdown
+!
+interface GigabitEthernet0/0/0.10
+ encapsulation dot1Q 10
+ ip vrf forwarding OSPF10
+ ip address 10.0.1.2 255.255.255.252
+!
+interface GigabitEthernet0/0/0.20
+ encapsulation dot1Q 20
+ ip vrf forwarding OSPF20
+ ip address 10.0.1.6 255.255.255.252
+!
+interface GigabitEthernet0/0/1
+ no ip address
+ negotiation auto
+ no shutdown
+!
+interface GigabitEthernet0/0/1.10
+ encapsulation dot1Q 10
+ ip vrf forwarding OSPF10
+ ip address 10.1.1.6 255.255.255.252
+!
+interface GigabitEthernet0/0/1.20
+ encapsulation dot1Q 20
+ ip vrf forwarding OSPF20
+ ip address 10.1.1.6 255.255.255.252
+!
+interface Serial0/1/0
+ no ip address
+!
+interface Serial0/1/1
+ no ip address
+!
+interface GigabitEthernet0
+ vrf forwarding Mgmt-intf
+ no ip address
+ negotiation auto
+!
+interface Vlan1
+ no ip address
+!
+router ospf 10 vrf OSPF10
+ router-id 3.3.3.10
+ network 10.0.1.0 0.0.0.3 area 0
+ network 10.1.1.4 0.0.0.3 area 0
+!
+router ospf 20 vrf OSPF20
+ router-id 3.3.3.20
+ network 10.0.1.4 0.0.0.3 area 0
+ network 10.1.1.4 0.0.0.3 area 0
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+control-plane
+!
+!
+line con 0
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ login
+!
+!
+end

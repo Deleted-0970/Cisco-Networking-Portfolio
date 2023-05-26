@@ -1,0 +1,130 @@
+R1:
+Routing Table: OSPF10
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 6 subnets, 2 masks
+C        10.0.0.0/30 is directly connected, GigabitEthernet0/0/1.10
+L        10.0.0.2/32 is directly connected, GigabitEthernet0/0/1.10
+O        10.0.1.0/30 [110/3] via 10.1.1.2, 00:02:25, GigabitEthernet0/0/0.10
+C        10.1.1.0/30 is directly connected, GigabitEthernet0/0/0.10
+L        10.1.1.1/32 is directly connected, GigabitEthernet0/0/0.10
+O        10.1.1.4/30 [110/2] via 10.1.1.2, 00:02:35, GigabitEthernet0/0/0.10
+
+Routing Table: OSPF20
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 6 subnets, 2 masks
+C        10.0.0.4/30 is directly connected, GigabitEthernet0/0/1.20
+L        10.0.0.6/32 is directly connected, GigabitEthernet0/0/1.20
+O        10.0.1.4/30 [110/3] via 10.1.1.2, 00:03:19, GigabitEthernet0/0/0.20
+C        10.1.1.0/30 is directly connected, GigabitEthernet0/0/0.20
+L        10.1.1.1/32 is directly connected, GigabitEthernet0/0/0.20
+O        10.1.1.4/30 [110/2] via 10.1.1.2, 00:03:29, GigabitEthernet0/0/0.20
+
+
+R2:
+Routing Table: OSPF10
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 6 subnets, 2 masks
+O        10.0.0.0/30 [110/2] via 10.1.1.1, 00:03:55, GigabitEthernet0/0/1.10
+O        10.0.1.0/30 [110/2] via 10.1.1.6, 00:03:23, GigabitEthernet0/0/0.10
+C        10.1.1.0/30 is directly connected, GigabitEthernet0/0/1.10
+L        10.1.1.2/32 is directly connected, GigabitEthernet0/0/1.10
+C        10.1.1.4/30 is directly connected, GigabitEthernet0/0/0.10
+L        10.1.1.5/32 is directly connected, GigabitEthernet0/0/0.10
+
+Routing Table: OSPF20
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 6 subnets, 2 masks
+O        10.0.0.4/30 [110/2] via 10.1.1.1, 00:04:09, GigabitEthernet0/0/1.20
+O        10.0.1.4/30 [110/2] via 10.1.1.6, 00:03:59, GigabitEthernet0/0/0.20
+C        10.1.1.0/30 is directly connected, GigabitEthernet0/0/1.20
+L        10.1.1.2/32 is directly connected, GigabitEthernet0/0/1.20
+C        10.1.1.4/30 is directly connected, GigabitEthernet0/0/0.20
+L        10.1.1.5/32 is directly connected, GigabitEthernet0/0/0.20
+
+
+R3:
+Routing Table: OSPF10
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 6 subnets, 2 masks
+O        10.0.0.0/30 [110/3] via 10.1.1.5, 00:04:09, GigabitEthernet0/0/1.10
+C        10.0.1.0/30 is directly connected, GigabitEthernet0/0/0.10
+L        10.0.1.2/32 is directly connected, GigabitEthernet0/0/0.10
+O        10.1.1.0/30 [110/2] via 10.1.1.5, 00:04:09, GigabitEthernet0/0/1.10
+C        10.1.1.4/30 is directly connected, GigabitEthernet0/0/1.10
+L        10.1.1.6/32 is directly connected, GigabitEthernet0/0/1.10
+
+Routing Table: OSPF20
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 6 subnets, 2 masks
+O        10.0.0.4/30 [110/3] via 10.1.1.5, 00:04:44, GigabitEthernet0/0/1.20
+C        10.0.1.4/30 is directly connected, GigabitEthernet0/0/0.20
+L        10.0.1.6/32 is directly connected, GigabitEthernet0/0/0.20
+O        10.1.1.0/30 [110/2] via 10.1.1.5, 00:04:44, GigabitEthernet0/0/1.20
+C        10.1.1.4/30 is directly connected, GigabitEthernet0/0/1.20
+L        10.1.1.6/32 is directly connected, GigabitEthernet0/0/1.20
