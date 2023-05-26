@@ -1,0 +1,163 @@
+hostname r5
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!
+no aaa new-model
+!
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+ipv6 unicast-routing
+multilink bundle-name authenticated
+!
+!
+!
+crypto pki trustpoint TP-self-signed-2270144787
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2270144787
+ revocation-check none
+ rsakeypair TP-self-signed-2270144787
+!
+!
+crypto pki certificate chain TP-self-signed-2270144787
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 32323730 31343437 3837301E 170D3232 31303034 31373131
+  31365A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 32373031
+  34343738 37308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201
+  0A028201 010091E8 5CF43324 EA2305CE 23C2325C 83678A2D DE8D1401 51469202
+  59875EB1 5D8DE3CF 78D89071 548D190D 00EF5934 23590721 336301B4 1D88516A
+  0CA96593 95015667 8A26676F FC29D2F0 A0C2F8F5 0781577A A1563569 4C943075
+  0ECC2A3F D30346F5 6EC533EF 310E2F2B 5A8D9B48 969D6BB9 5F294C9D 63003545
+  39C20BE8 9125EA82 B3D08B5B 142B3057 9861A7BD A6D567B6 5189FCDA 330FB57A
+  F5D075DF AC71CD04 A13EC59F FE3C7467 1ACA7D98 04307A32 78706A1E 20038921
+  C1BE87EB A2D2A8CA AE0DFF11 5BF1C70F B9D68407 EB0DF639 ED576D60 3FD7AFAF
+  A51E5B93 5ACAA2C4 B6EC8888 1EA47A19 81FEDD41 B1488D92 2D151114 D28E7205
+  17F0A305 B01F0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF
+  301F0603 551D2304 18301680 14C7CF9E 415237A9 33310B8C E9409253 39567120
+  DF301D06 03551D0E 04160414 C7CF9E41 5237A933 310B8CE9 40925339 567120DF
+  300D0609 2A864886 F70D0101 05050003 82010100 87BE5C4F 6AA01F83 FA617820
+  AAE4775C FEBCCB11 2CC1E111 50F3D928 23F36BF7 3250F0B4 021A078E 64F7BDEF
+  42078020 3132A015 F4F7B8BE B8B83A84 ECD21655 09C22E00 0A9901AF 06BDDF71
+  D8271D7D 8EFB24FA 9F2F319D 9C14F6EB 7E903988 C79C7629 C405A8B5 A23AD369
+  45E9EEC8 F06C2EF2 B9F7BDEF 3074F3C4 2EC1CE63 C178FCFF 31A93952 A6F01595
+  31BFBBC7 79E0D03A 2826063A 029335F3 F6927134 18369249 A3811CDE 67490D79
+  5E978487 DB17F64C EAEAB46B 86ADCB1A 28BFC35D 175AE9E4 F45851E6 CDD19B87
+  2C44D926 B069E503 FA9E8BF0 7626C530 CD7560EB 60370D7E 57AD4E3D 3114B04C
+  68933BC5 3709FBE7 D787B776 A78BF200 AB3934D4
+        quit
+!
+license udi pid ISR4321/K9 sn FLM24060912
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+!
+redundancy
+ mode none
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 192.168.5.1 255.255.255.0
+ ipv6 address 2001:DB8:5::1/64
+ ipv6 eigrp 10
+!
+interface GigabitEthernet0/0/0
+ ip address 10.1.1.21 255.255.255.252
+ negotiation auto
+ ipv6 address FE80::1 link-local
+ ipv6 address 2001:DB8:ACAD:6::1/64
+ ipv6 enable
+ ipv6 eigrp 10
+!
+interface GigabitEthernet0/0/1
+ ip address 10.1.1.18 255.255.255.252
+ negotiation auto
+ ipv6 address FE80::2 link-local
+ ipv6 address 2001:DB8:ACAD:5::2/64
+ ipv6 enable
+ ipv6 eigrp 10
+!
+interface GigabitEthernet0/2/0
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet0/2/1
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet0
+ vrf forwarding Mgmt-intf
+ no ip address
+ shutdown
+ negotiation auto
+!
+!
+router eigrp 10
+ network 10.1.1.16 0.0.0.3
+ network 10.1.1.20 0.0.0.3
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip tftp source-interface GigabitEthernet0
+!
+!
+ipv6 router eigrp 10
+ eigrp router-id 5.5.5.5
+!
+!
+!
+!
+!
+control-plane
+!
+!
+line con 0
+ transport input none
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ login
+!
+!
+!
+!
+!
+!
+end
