@@ -1,0 +1,217 @@
+hostname S2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+system mtu routing 1500
+ip routing
+!
+!
+!
+vtp domain BUSD
+vtp mode transparent
+!
+mpls label protocol ldp
+!
+crypto pki trustpoint TP-self-signed-666922496
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-666922496
+ revocation-check none
+ rsakeypair TP-self-signed-666922496
+!
+!
+crypto pki certificate chain TP-self-signed-666922496
+ certificate self-signed 01
+  3082023C 308201A5 A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 36363639 32323439 36301E17 0D393330 33303130 30303130
+  315A170D 32303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3636 36393232
+  34393630 819F300D 06092A86 4886F70D 01010105 0003818D 00308189 02818100
+  C527C9FE 5ED533D8 BA046768 EB5A04D5 1C74CB75 9B6DD512 1F7D63CB CDA9BD3B
+  EC43EC5A 8CBCF64C 77375F3B 07BB67D7 7D8F9B89 5841946B D9BED2C5 10EDB787
+  77847779 A400CD85 CF84FF59 122582BA 25635745 CD558BE8 AA9E0AFD B0AB4CBF
+  82874F04 387129E4 254CC909 9ABECEC8 D84D7F32 65EEEA9C A7B0F3D4 E2BAE383
+  02030100 01A36630 64300F06 03551D13 0101FF04 05300301 01FF3011 0603551D
+  11040A30 08820653 77697463 68301F06 03551D23 04183016 8014E6BF AA3DAB08
+  87125262 EBC5FC3E 671F8256 C338301D 0603551D 0E041604 14E6BFAA 3DAB0887
+  125262EB C5FC3E67 1F8256C3 38300D06 092A8648 86F70D01 01040500 03818100
+  7DAFF1B3 23D9B987 9D8E4982 7096ABB5 810292E5 CA1494AD D2E761B5 4EF947BC
+  9A3512A1 281074DC 9EB8BCC0 5CE85317 05CF6553 E93EFDAC BE64F3A8 E10D8020
+  43216718 BCFA9953 A23CCD0A 1084C35E 8CC98FBD 3FA923A8 0282354A 46B057E2
+  6A1B2248 7E3AD995 6DFBA57E E1C02E90 30CDBA54 863339F3 2245BBEB EF56E313
+        quit
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+vlan 2
+ name NARUTO
+!
+vlan 3
+ name SASUKE
+!
+vlan 10
+ name user_vlan10
+!
+vlan 31
+ name Int_Printer_Test_VLAN
+!
+vlan 312
+ name BT-Opteman_vlan312
+!
+vlan 313
+ name CW-Opteman_vlan313
+!
+vlan 314
+ name LV-Opteman_vlan313
+!
+vlan 315
+ name MW-Opteman_vlan315
+!
+vlan 316
+ name MR-Opteman_vlan316
+!
+vlan 317
+ name NB-Opteman_vlan317
+!
+vlan 318
+ name NW-Opteman_vlan318
+!
+vlan 319
+ name PM-Opteman_vlan319
+!
+vlan 320
+ name RS-Opteman_vlan320
+!
+vlan 321
+ name SM-Opteman_vlan321
+!
+vlan 322
+ name SD-Opteman_vlan322
+!
+vlan 323
+ name TY-Opteman_vlan323
+!
+vlan 324
+ name VP-Opteman_vlan324
+!
+vlan 421
+ name SM-Opteman_vlan421
+!
+vlan 996
+ name CUSTOMER_NATIVE
+!
+vlan 999
+ name WIFI
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.0.0.2 255.255.255.255
+ ip ospf 1 area 0
+!
+interface FastEthernet1/0/1
+!
+interface FastEthernet1/0/2
+!
+interface FastEthernet1/0/3
+!
+interface FastEthernet1/0/4
+!
+interface FastEthernet1/0/5
+!
+interface FastEthernet1/0/6
+!
+interface FastEthernet1/0/7
+!
+interface FastEthernet1/0/8
+!
+interface FastEthernet1/0/9
+!
+interface FastEthernet1/0/10
+!
+interface FastEthernet1/0/11
+!
+interface FastEthernet1/0/12
+!
+interface FastEthernet1/0/13
+!
+interface FastEthernet1/0/14
+!
+interface FastEthernet1/0/15
+!
+interface FastEthernet1/0/16
+!
+interface FastEthernet1/0/17
+!
+interface FastEthernet1/0/18
+!
+interface FastEthernet1/0/19
+!
+interface FastEthernet1/0/20
+!
+interface FastEthernet1/0/21
+!
+interface FastEthernet1/0/22
+!
+interface FastEthernet1/0/23
+!
+interface FastEthernet1/0/24
+!
+interface GigabitEthernet1/0/1
+!
+interface GigabitEthernet1/0/2
+!
+interface GigabitEthernet1/1/1
+ no switchport
+ ip address 10.0.1.2 255.255.255.252
+ ip ospf 1 area 0
+ speed auto 1000
+ mpls ip
+!
+interface GigabitEthernet1/1/2
+ no switchport
+ ip address 10.0.1.9 255.255.255.252
+ ip ospf 1 area 0
+ speed auto 1000
+ mpls ip
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 2.2.2.2
+ network 10.0.0.2 0.0.0.0 area 0
+ network 10.0.1.0 0.0.0.3 area 0
+ network 10.0.1.8 0.0.0.3 area 0
+!
+!
+ip http server
+ip http secure-server
+!
+!
+ip sla enable reaction-alerts
+logging esm config
+!
+!
+!
+line con 0
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+end

@@ -1,0 +1,143 @@
+hostname S3
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+system mtu routing 1500
+ip routing
+!
+!
+!
+vtp domain CCNP
+vtp mode transparent
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+vlan 2
+!
+vlan 10
+ name apple
+!
+vlan 20
+ name samsung
+!
+vlan 100
+ remote-span
+!
+vlan 200,500-501,693
+!
+vlan 694
+ name pog
+!
+vlan 996
+ name CUSTOMER_NATIVE
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.0.0.3 255.255.255.255
+ ip ospf 1 area 0
+!
+interface FastEthernet1/0/1
+!
+interface FastEthernet1/0/2
+!
+interface FastEthernet1/0/3
+!
+interface FastEthernet1/0/4
+!
+interface FastEthernet1/0/5
+!
+interface FastEthernet1/0/6
+!
+interface FastEthernet1/0/7
+!
+interface FastEthernet1/0/8
+!
+interface FastEthernet1/0/9
+!
+interface FastEthernet1/0/10
+!
+interface FastEthernet1/0/11
+!
+interface FastEthernet1/0/12
+!
+interface FastEthernet1/0/13
+!
+interface FastEthernet1/0/14
+!
+interface FastEthernet1/0/15
+!
+interface FastEthernet1/0/16
+!
+interface FastEthernet1/0/17
+!
+interface FastEthernet1/0/18
+!
+interface FastEthernet1/0/19
+!
+interface FastEthernet1/0/20
+!
+interface FastEthernet1/0/21
+!
+interface FastEthernet1/0/22
+!
+interface FastEthernet1/0/23
+!
+interface FastEthernet1/0/24
+!
+interface GigabitEthernet1/0/1
+!
+interface GigabitEthernet1/0/2
+!
+interface GigabitEthernet1/1/1
+ no switchport
+ ip address 10.0.3.5 255.255.255.252
+ ip ospf 1 area 0
+ speed auto 1000
+!
+interface GigabitEthernet1/1/2
+ no switchport
+ ip address 10.0.1.10 255.255.255.252
+ ip ospf 1 area 0
+ speed auto 1000
+ mpls ip
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 3.3.3.3
+ network 10.0.1.8 0.0.0.3 area 0
+ network 10.0.3.0 0.0.0.0 area 0
+ network 10.0.3.4 0.0.0.3 area 0
+!
+!
+ip http server
+ip http secure-server
+!
+!
+logging esm config
+!
+!
+!
+line con 0
+line vty 5 15
+!
+end

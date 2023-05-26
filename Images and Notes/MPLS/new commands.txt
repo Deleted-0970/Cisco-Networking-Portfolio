@@ -1,0 +1,13 @@
+ip routing
+
+no switchport
+
+mpls ip
+
+show mpls forwarding-table          
+
+mpls lable protocol tdp
+
+mpls label range 200 8191 static 16 199
+
+mpls static binding ipv4 192.168.3.2 255.255.255.255 output 10.0.1.2 22

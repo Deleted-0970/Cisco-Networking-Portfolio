@@ -1,0 +1,223 @@
+hostname S1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+system mtu routing 1500
+ip routing
+!
+!
+!
+vtp domain CCNP
+vtp mode transparent
+!
+mpls label range 200 8191 static 16 199
+!
+crypto pki trustpoint TP-self-signed-661422464
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-661422464
+ revocation-check none
+ rsakeypair TP-self-signed-661422464
+!
+!
+crypto pki certificate chain TP-self-signed-661422464
+ certificate self-signed 01
+  3082023C 308201A5 A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 36363134 32323436 34301E17 0D393330 33303130 30303130
+  315A170D 32303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3636 31343232
+  34363430 819F300D 06092A86 4886F70D 01010105 0003818D 00308189 02818100
+  D36BB700 D69149C7 3A90EF4B 3CFD4B27 1BC7990D 107F5E91 07743DED EDA8607A
+  0264F4CD 1B3D0C59 2C873BAA 31307B83 EE0B2E47 2D63D175 1C9B7AFB 470FCC60
+  DDD24F11 A5B23F2B A0FEB63A 46959C47 8328B23E 6A21EE3B D4211F0A 0C6BF28E
+  BCBF5613 101CB3B0 E3EDD552 CCB356B0 E88389C1 AF6F503C 07732BFF FE471A6B
+  02030100 01A36630 64300F06 03551D13 0101FF04 05300301 01FF3011 0603551D
+  11040A30 08820653 77697463 68301F06 03551D23 04183016 80144AB7 2EC34C23
+  DD69C33E 5EAE038F BCA9FAA0 5360301D 0603551D 0E041604 144AB72E C34C23DD
+  69C33E5E AE038FBC A9FAA053 60300D06 092A8648 86F70D01 01040500 03818100
+  5576EED9 9F157EBA 7CBD14B6 8ACF18CF 314E39A7 83AF69B1 4311808A 11390773
+  5EFDEA78 AADC3D28 440497B1 70366890 9639713D 7C06E7CB 1198F3C0 B8FAD80C
+  77641C99 173036A9 86F29966 1F33494F 08B33E78 71103631 30539AAD 6C0292D7
+  3F54EFF8 822778EB D030E7D1 E01D60F2 6CE474BC ADD43D58 5D5ADA82 01AC7FB9
+        quit
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+vlan 2
+ name NARUTO
+!
+vlan 3
+ name SASUKE
+!
+vlan 10
+ name Cisco
+!
+vlan 20
+ name Ccnp
+!
+vlan 31
+ name Int_Printer_Test_VLAN
+!
+vlan 312
+ name BT-Opteman_vlan312
+!
+vlan 313
+ name CW-Opteman_vlan313
+!
+vlan 314
+ name LV-Opteman_vlan313
+!
+vlan 315
+ name MW-Opteman_vlan315
+!
+vlan 316
+ name MR-Opteman_vlan316
+!
+vlan 317
+ name NB-Opteman_vlan317
+!
+vlan 318
+ name NW-Opteman_vlan318
+!
+vlan 319
+ name PM-Opteman_vlan319
+!
+vlan 320
+ name RS-Opteman_vlan320
+!
+vlan 321
+ name SM-Opteman_vlan321
+!
+vlan 322
+ name SD-Opteman_vlan322
+!
+vlan 323
+ name TY-Opteman_vlan323
+!
+vlan 324
+ name VP-Opteman_vlan324
+!
+vlan 421
+ name SM-Opteman_vlan421
+!
+vlan 996
+ name CUSTOMER_NATIVE
+!
+vlan 999
+ name WIFI
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.0.0.1 255.255.255.255
+!
+interface FastEthernet1/0/1
+!
+interface FastEthernet1/0/2
+!
+interface FastEthernet1/0/3
+!
+interface FastEthernet1/0/4
+!
+interface FastEthernet1/0/5
+!
+interface FastEthernet1/0/6
+!
+interface FastEthernet1/0/7
+!
+interface FastEthernet1/0/8
+!
+interface FastEthernet1/0/9
+!
+interface FastEthernet1/0/10
+!
+interface FastEthernet1/0/11
+!
+interface FastEthernet1/0/12
+!
+interface FastEthernet1/0/13
+!
+interface FastEthernet1/0/14
+!
+interface FastEthernet1/0/15
+!
+interface FastEthernet1/0/16
+!
+interface FastEthernet1/0/17
+!
+interface FastEthernet1/0/18
+!
+interface FastEthernet1/0/19
+!
+interface FastEthernet1/0/20
+!
+interface FastEthernet1/0/21
+!
+interface FastEthernet1/0/22
+!
+interface FastEthernet1/0/23
+!
+interface FastEthernet1/0/24
+!
+interface GigabitEthernet1/0/1
+!
+interface GigabitEthernet1/0/2
+!
+interface GigabitEthernet1/1/1
+ no switchport
+ ip address 10.0.1.1 255.255.255.252
+ ip ospf 1 area 0
+ speed auto 1000
+ mpls ip
+!
+interface GigabitEthernet1/1/2
+ no switchport
+ ip address 10.0.2.1 255.255.255.252
+ ip ospf 1 area 0
+ speed auto 1000
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 1.1.1.1
+ network 10.0.0.1 0.0.0.0 area 0
+ network 10.0.1.0 0.0.0.3 area 0
+ network 10.0.2.0 0.0.0.3 area 0
+!
+!
+ip http server
+ip http secure-server
+!
+!
+logging esm config
+!
+!
+mpls static binding ipv4 10.0.0.2 255.255.255.255 output 10.0.1.2 implicit-null
+mpls static binding ipv4 10.0.0.3 255.255.255.255 output 10.0.1.2 16
+mpls static binding ipv4 10.0.1.8 255.255.255.252 output 10.0.1.2 implicit-null
+mpls static binding ipv4 10.0.3.4 255.255.255.252 output 10.0.1.2 21
+mpls static binding ipv4 192.168.2.2 255.255.255.255 output 10.0.1.2 23
+mpls static binding ipv4 192.168.3.2 255.255.255.255 output 10.0.1.2 22
+!
+line con 0
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+end
