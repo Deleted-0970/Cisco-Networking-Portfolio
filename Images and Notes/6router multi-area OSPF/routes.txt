@@ -1,0 +1,207 @@
+IPv4
+---------------
+R1:
+      10.0.0.0/8 is variably subnetted, 9 subnets, 2 masks
+C        10.1.1.0/30 is directly connected, GigabitEthernet0/0/1
+L        10.1.1.2/32 is directly connected, GigabitEthernet0/0/1
+C        10.1.1.4/30 is directly connected, GigabitEthernet0/0/0
+L        10.1.1.5/32 is directly connected, GigabitEthernet0/0/0
+O        10.1.1.8/30 [110/2] via 10.1.1.6, 00:14:41, GigabitEthernet0/0/0
+O IA     10.1.1.12/30 [110/3] via 10.1.1.6, 00:14:16, GigabitEthernet0/0/0
+O IA     10.1.1.16/30 [110/4] via 10.1.1.6, 00:11:36, GigabitEthernet0/0/0
+O IA     10.1.1.20/30 [110/5] via 10.1.1.6, 00:09:03, GigabitEthernet0/0/0
+O IA     10.1.1.24/30 [110/6] via 10.1.1.6, 00:08:18, GigabitEthernet0/0/0
+
+R2:
+      10.0.0.0/8 is variably subnetted, 9 subnets, 2 masks
+O        10.1.1.0/30 [110/2] via 10.1.1.5, 00:17:48, GigabitEthernet0/0/1
+C        10.1.1.4/30 is directly connected, GigabitEthernet0/0/1
+L        10.1.1.6/32 is directly connected, GigabitEthernet0/0/1
+C        10.1.1.8/30 is directly connected, GigabitEthernet0/0/0
+L        10.1.1.9/32 is directly connected, GigabitEthernet0/0/0
+O IA     10.1.1.12/30 [110/2] via 10.1.1.10, 00:15:28, GigabitEthernet0/0/0
+O IA     10.1.1.16/30 [110/3] via 10.1.1.10, 00:12:48, GigabitEthernet0/0/0
+O IA     10.1.1.20/30 [110/4] via 10.1.1.10, 00:10:15, GigabitEthernet0/0/0
+O IA     10.1.1.24/30 [110/5] via 10.1.1.10, 00:09:30, GigabitEthernet0/0/0
+
+R3:
+      10.0.0.0/8 is variably subnetted, 9 subnets, 2 masks
+O        10.1.1.0/30 [110/3] via 10.1.1.9, 00:16:45, GigabitEthernet0/0/1
+O        10.1.1.4/30 [110/2] via 10.1.1.9, 00:16:45, GigabitEthernet0/0/1
+C        10.1.1.8/30 is directly connected, GigabitEthernet0/0/1
+L        10.1.1.10/32 is directly connected, GigabitEthernet0/0/1
+C        10.1.1.12/30 is directly connected, GigabitEthernet0/0/0
+L        10.1.1.13/32 is directly connected, GigabitEthernet0/0/0
+O IA     10.1.1.16/30 [110/2] via 10.1.1.14, 00:13:55, GigabitEthernet0/0/0
+O IA     10.1.1.20/30 [110/3] via 10.1.1.14, 00:11:22, GigabitEthernet0/0/0
+O IA     10.1.1.24/30 [110/4] via 10.1.1.14, 00:10:37, GigabitEthernet0/0/0
+
+R4:
+  10.0.0.0/8 is variably subnetted, 9 subnets, 2 masks
+O IA     10.1.1.0/30 [110/4] via 10.1.1.13, 00:16:57, GigabitEthernet0/0/1
+O IA     10.1.1.4/30 [110/3] via 10.1.1.13, 00:16:57, GigabitEthernet0/0/1
+O IA     10.1.1.8/30 [110/2] via 10.1.1.13, 00:16:57, GigabitEthernet0/0/1
+C        10.1.1.12/30 is directly connected, GigabitEthernet0/0/1
+L        10.1.1.14/32 is directly connected, GigabitEthernet0/0/1
+C        10.1.1.16/30 is directly connected, GigabitEthernet0/0/0
+L        10.1.1.17/32 is directly connected, GigabitEthernet0/0/0
+O        10.1.1.20/30 [110/2] via 10.1.1.18, 00:13:29, GigabitEthernet0/0/0
+O        10.1.1.24/30 [110/3] via 10.1.1.18, 00:13:29, GigabitEthernet0/0/0
+
+R5:
+10.0.0.0/8 is variably subnetted, 9 subnets, 2 masks
+O IA     10.1.1.0/30 [110/5] via 10.1.1.17, 00:17:09, GigabitEthernet0/0/1
+O IA     10.1.1.4/30 [110/4] via 10.1.1.17, 00:17:09, GigabitEthernet0/0/1
+O IA     10.1.1.8/30 [110/3] via 10.1.1.17, 00:17:09, GigabitEthernet0/0/1
+O IA     10.1.1.12/30 [110/2] via 10.1.1.17, 00:17:09, GigabitEthernet0/0/1
+C        10.1.1.16/30 is directly connected, GigabitEthernet0/0/1
+L        10.1.1.18/32 is directly connected, GigabitEthernet0/0/1
+C        10.1.1.20/30 is directly connected, GigabitEthernet0/0/0
+L        10.1.1.21/32 is directly connected, GigabitEthernet0/0/0
+O        10.1.1.24/30 [110/2] via 10.1.1.22, 00:14:31, GigabitEthernet0/0/0
+
+R6:
+      10.0.0.0/8 is variably subnetted, 9 subnets, 2 masks
+O IA     10.1.1.0/30 [110/6] via 10.1.1.21, 00:15:44, GigabitEthernet0/0/1
+O IA     10.1.1.4/30 [110/5] via 10.1.1.21, 00:15:44, GigabitEthernet0/0/1
+O IA     10.1.1.8/30 [110/4] via 10.1.1.21, 00:15:44, GigabitEthernet0/0/1
+O IA     10.1.1.12/30 [110/3] via 10.1.1.21, 00:15:44, GigabitEthernet0/0/1
+O        10.1.1.16/30 [110/2] via 10.1.1.21, 00:15:44, GigabitEthernet0/0/1
+C        10.1.1.20/30 is directly connected, GigabitEthernet0/0/1
+L        10.1.1.22/32 is directly connected, GigabitEthernet0/0/1
+C        10.1.1.24/30 is directly connected, GigabitEthernet0/0/0
+L        10.1.1.25/32 is directly connected, GigabitEthernet0/0/0
+
+IPv6
+--------------
+R1:
+C   2001:DB8:ACAD:1::/64 [0/0]
+     via GigabitEthernet0/0/1, directly connected
+L   2001:DB8:ACAD:1::2/128 [0/0]
+     via GigabitEthernet0/0/1, receive
+C   2001:DB8:ACAD:2::/64 [0/0]
+     via GigabitEthernet0/0/0, directly connected
+L   2001:DB8:ACAD:2::1/128 [0/0]
+     via GigabitEthernet0/0/0, receive
+O   2001:DB8:ACAD:3::/64 [110/2]
+     via FE80::2, GigabitEthernet0/0/0
+OI  2001:DB8:ACAD:4::/64 [110/3]
+     via FE80::2, GigabitEthernet0/0/0
+OI  2001:DB8:ACAD:5::/64 [110/4]
+     via FE80::2, GigabitEthernet0/0/0
+OI  2001:DB8:ACAD:6::/64 [110/5]
+     via FE80::2, GigabitEthernet0/0/0
+OI  2001:DB8:ACAD:7::/64 [110/6]
+     via FE80::2, GigabitEthernet0/0/0
+L   FF00::/8 [0/0]
+     via Null0, receive
+
+R2:
+O   2001:DB8:ACAD:1::/64 [110/2]
+     via FE80::1, GigabitEthernet0/0/1
+C   2001:DB8:ACAD:2::/64 [0/0]
+     via GigabitEthernet0/0/1, directly connected
+L   2001:DB8:ACAD:2::2/128 [0/0]
+     via GigabitEthernet0/0/1, receive
+C   2001:DB8:ACAD:3::/64 [0/0]
+     via GigabitEthernet0/0/0, directly connected
+L   2001:DB8:ACAD:3::1/128 [0/0]
+     via GigabitEthernet0/0/0, receive
+OI  2001:DB8:ACAD:4::/64 [110/2]
+     via FE80::2, GigabitEthernet0/0/0
+OI  2001:DB8:ACAD:5::/64 [110/3]
+     via FE80::2, GigabitEthernet0/0/0
+OI  2001:DB8:ACAD:6::/64 [110/4]
+     via FE80::2, GigabitEthernet0/0/0
+OI  2001:DB8:ACAD:7::/64 [110/5]
+     via FE80::2, GigabitEthernet0/0/0
+L   FF00::/8 [0/0]
+     via Null0, receive
+
+R3:
+O   2001:DB8:ACAD:1::/64 [110/3]
+     via FE80::1, GigabitEthernet0/0/1
+O   2001:DB8:ACAD:2::/64 [110/2]
+     via FE80::1, GigabitEthernet0/0/1
+C   2001:DB8:ACAD:3::/64 [0/0]
+     via GigabitEthernet0/0/1, directly connected
+L   2001:DB8:ACAD:3::2/128 [0/0]
+     via GigabitEthernet0/0/1, receive
+C   2001:DB8:ACAD:4::/64 [0/0]
+     via GigabitEthernet0/0/0, directly connected
+L   2001:DB8:ACAD:4::1/128 [0/0]
+     via GigabitEthernet0/0/0, receive
+OI  2001:DB8:ACAD:5::/64 [110/2]
+     via FE80::2, GigabitEthernet0/0/0
+OI  2001:DB8:ACAD:6::/64 [110/3]
+     via FE80::2, GigabitEthernet0/0/0
+OI  2001:DB8:ACAD:7::/64 [110/4]
+     via FE80::2, GigabitEthernet0/0/0
+L   FF00::/8 [0/0]
+     via Null0, receive
+
+R4:
+OI  2001:DB8:ACAD:1::/64 [110/4]
+     via FE80::1, GigabitEthernet0/0/1
+OI  2001:DB8:ACAD:2::/64 [110/3]
+     via FE80::1, GigabitEthernet0/0/1
+OI  2001:DB8:ACAD:3::/64 [110/2]
+     via FE80::1, GigabitEthernet0/0/1
+C   2001:DB8:ACAD:4::/64 [0/0]
+     via GigabitEthernet0/0/1, directly connected
+L   2001:DB8:ACAD:4::2/128 [0/0]
+     via GigabitEthernet0/0/1, receive
+C   2001:DB8:ACAD:5::/64 [0/0]
+     via GigabitEthernet0/0/0, directly connected
+L   2001:DB8:ACAD:5::1/128 [0/0]
+     via GigabitEthernet0/0/0, receive
+O   2001:DB8:ACAD:6::/64 [110/2]
+     via FE80::2, GigabitEthernet0/0/0
+O   2001:DB8:ACAD:7::/64 [110/3]
+     via FE80::2, GigabitEthernet0/0/0
+L   FF00::/8 [0/0]
+     via Null0, receive
+
+R5:
+OI  2001:DB8:ACAD:1::/64 [110/5]
+     via FE80::1, GigabitEthernet0/0/1
+OI  2001:DB8:ACAD:2::/64 [110/4]
+     via FE80::1, GigabitEthernet0/0/1
+OI  2001:DB8:ACAD:3::/64 [110/3]
+     via FE80::1, GigabitEthernet0/0/1
+OI  2001:DB8:ACAD:4::/64 [110/2]
+     via FE80::1, GigabitEthernet0/0/1
+C   2001:DB8:ACAD:5::/64 [0/0]
+     via GigabitEthernet0/0/1, directly connected
+L   2001:DB8:ACAD:5::2/128 [0/0]
+     via GigabitEthernet0/0/1, receive
+C   2001:DB8:ACAD:6::/64 [0/0]
+     via GigabitEthernet0/0/0, directly connected
+L   2001:DB8:ACAD:6::1/128 [0/0]
+     via GigabitEthernet0/0/0, receive
+O   2001:DB8:ACAD:7::/64 [110/2]
+     via FE80::2, GigabitEthernet0/0/0
+L   FF00::/8 [0/0]
+     via Null0, receive
+
+R6:
+OI  2001:DB8:ACAD:1::/64 [110/6]
+     via FE80::1, GigabitEthernet0/0/1
+OI  2001:DB8:ACAD:2::/64 [110/5]
+     via FE80::1, GigabitEthernet0/0/1
+OI  2001:DB8:ACAD:3::/64 [110/4]
+     via FE80::1, GigabitEthernet0/0/1
+OI  2001:DB8:ACAD:4::/64 [110/3]
+     via FE80::1, GigabitEthernet0/0/1
+O   2001:DB8:ACAD:5::/64 [110/2]
+     via FE80::1, GigabitEthernet0/0/1
+C   2001:DB8:ACAD:6::/64 [0/0]
+     via GigabitEthernet0/0/1, directly connected
+L   2001:DB8:ACAD:6::2/128 [0/0]
+     via GigabitEthernet0/0/1, receive
+C   2001:DB8:ACAD:7::/64 [0/0]
+     via GigabitEthernet0/0/0, directly connected
+L   2001:DB8:ACAD:7::1/128 [0/0]
+     via GigabitEthernet0/0/0, receive
+L   FF00::/8 [0/0]
+     via Null0, receive

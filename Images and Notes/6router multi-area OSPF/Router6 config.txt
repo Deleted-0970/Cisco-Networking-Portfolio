@@ -1,0 +1,167 @@
+hostname r6
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!
+no aaa new-model
+!
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+ipv6 unicast-routing
+multilink bundle-name authenticated
+!
+!
+!
+crypto pki trustpoint TP-self-signed-4144679456
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-4144679456
+ revocation-check none
+ rsakeypair TP-self-signed-4144679456
+!
+crypto pki trustpoint TP-self-signed-2270144787
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2270144787
+ revocation-check none
+ rsakeypair TP-self-signed-2270144787
+!
+!
+crypto pki certificate chain TP-self-signed-4144679456
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 34313434 36373934 3536301E 170D3232 30393134 31363439
+  33395A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D34 31343436
+  37393435 36308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201
+  0A028201 0100CCFC 6E2220E1 93956DC6 5E773AC2 B25126DF 1F533987 4770D4F2
+  5C5D887D 4DA1B02C 48269BD0 2BC4ACB2 BDD05959 BCFC4A73 E7ACBC82 1674B948
+  13B98F92 206F03EA 0D2E10A4 3E0966B9 EC926C9C 009BFB1F C2498968 10341BFB
+  43F71DFF EB883A17 C5A95169 94C59844 4D1B02FF 2C5FA356 97ECB734 95484613
+  0C06A29C 7F59B35A B4091FDC 0E00BEB7 64EAEC35 AEAF101E 85D01754 DA0D689A
+  17F726CF 849731E7 5F7C9A3E 05C4B072 FC6FB2AE 6B5668FD D34B1481 6F375EE7
+  21EF65DA E1F6C5CF 9DA4C34B 982A35EE 9F0D5F14 4B919A47 6EF46DAA D1A8D3AA
+  087B04DD 506BF7B8 5F73D919 D6C66F64 BB499BF4 F41EBB97 1C33F37A C9BA2B14
+  C8F3AD25 3ECB0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF
+  301F0603 551D2304 18301680 1419AC83 C50741EF 51D6578F 04A6FE55 55441C58
+  95301D06 03551D0E 04160414 19AC83C5 0741EF51 D6578F04 A6FE5555 441C5895
+  300D0609 2A864886 F70D0101 05050003 82010100 AD8E5DE2 BFBD529C E4F704A4
+  6D069DF9 C8A98356 FF2543FF 89D4D880 60ED8465 B80C0FE9 FF241FA8 4B3A73CB
+  00DD845B D9D0BE2C 1AF573DC CE192909 9092A588 86E15D9A 298FCB42 F34B1EB7
+  9D9BF334 A4CE35A7 C686B8BD 16AA2402 091D1ABD 7B52A79D A5D26C56 2F6CE52A
+  8CA49442 3343C6E9 BB5FF37F B16C3766 6F53DA5C 43F18FD2 2FCBE250 60F977AF
+  4E4B2137 A883AAC5 66A3B921 A4AE105B 043C06C2 9C81F0D2 A027B78E 0FC1FF9A
+  24021FF6 2E2A5F3F 7EA676CE 935CF95B C3BA4AF1 AB1B1B21 F2205D8F 37514CBB
+  AD893919 56167B92 C0DE9DCF B313E9CD 8656F62E 09C6A9A9 07559E28 07DE9933
+  3359BDA3 5854FFC1 5FE4F6D1 A7E4C49B 2BDE0A98
+        quit
+crypto pki certificate chain TP-self-signed-2270144787
+!
+license udi pid ISR4321/K9 sn FLM2408005M
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+!
+redundancy
+ mode none
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+ ip address 10.1.1.25 255.255.255.252
+ ip ospf 10 area 2
+ negotiation auto
+ ipv6 address FE80::1 link-local
+ ipv6 address 2001:DB8:ACAD:7::1/64
+ ipv6 ospf 10 area 2
+!
+interface GigabitEthernet0/0/1
+ ip address 10.1.1.22 255.255.255.252
+ ip ospf 10 area 2
+ negotiation auto
+ ipv6 address FE80::2 link-local
+ ipv6 address 2001:DB8:ACAD:6::2/64
+ ipv6 ospf 10 area 2
+!
+interface GigabitEthernet0/2/0
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet0/2/1
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet0
+ vrf forwarding Mgmt-intf
+ no ip address
+ shutdown
+ negotiation auto
+!
+router ospf 10
+ router-id 6.6.6.6
+ network 10.1.1.20 0.0.0.3 area 2
+ network 10.1.1.24 0.0.0.3 area 2
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip tftp source-interface GigabitEthernet0
+ip route 0.0.0.0 0.0.0.0 GigabitEthernet0/0/1
+!
+!
+ipv6 router ospf 10
+ router-id 6.6.6.6
+!
+!
+!
+!
+!
+control-plane
+!
+!
+line con 0
+ logging synchronous
+ transport input none
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ login
+!
+!
+!
+!
+!
+!
+end

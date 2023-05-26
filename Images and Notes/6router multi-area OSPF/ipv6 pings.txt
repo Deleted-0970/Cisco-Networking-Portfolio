@@ -1,0 +1,168 @@
+C:\Users\user>ping 2001:db8:acad:1::2
+
+Pinging 2001:db8:acad:1::2 with 32 bytes of data:
+Reply from 2001:db8:acad:1::2: time<1ms
+Reply from 2001:db8:acad:1::2: time<1ms
+Reply from 2001:db8:acad:1::2: time<1ms
+Reply from 2001:db8:acad:1::2: time<1ms
+
+Ping statistics for 2001:db8:acad:1::2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+C:\Users\user>ping 2001:db8:acad:2::1
+
+Pinging 2001:db8:acad:2::1 with 32 bytes of data:
+Reply from 2001:db8:acad:2::1: time=2ms
+Reply from 2001:db8:acad:2::1: time<1ms
+Reply from 2001:db8:acad:2::1: time<1ms
+Reply from 2001:db8:acad:2::1: time<1ms
+
+Ping statistics for 2001:db8:acad:2::1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 2ms, Average = 0ms
+
+C:\Users\user>ping 2001:db8:acad:2::2
+
+Pinging 2001:db8:acad:2::2 with 32 bytes of data:
+Reply from 2001:db8:acad:2::2: time=6ms
+Reply from 2001:db8:acad:2::2: time<1ms
+Reply from 2001:db8:acad:2::2: time<1ms
+Reply from 2001:db8:acad:2::2: time<1ms
+
+Ping statistics for 2001:db8:acad:2::2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 6ms, Average = 1ms
+
+C:\Users\user>ping 2001:db8:acad:3::1
+
+Pinging 2001:db8:acad:3::1 with 32 bytes of data:
+Reply from 2001:db8:acad:3::1: time<1ms
+Reply from 2001:db8:acad:3::1: time<1ms
+Reply from 2001:db8:acad:3::1: time=1ms
+Reply from 2001:db8:acad:3::1: time<1ms
+
+Ping statistics for 2001:db8:acad:3::1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 1ms, Average = 0ms
+
+C:\Users\user>ping 2001:db8:acad:3::2
+
+Pinging 2001:db8:acad:3::2 with 32 bytes of data:
+Reply from 2001:db8:acad:3::2: time=8ms
+Reply from 2001:db8:acad:3::2: time<1ms
+Reply from 2001:db8:acad:3::2: time<1ms
+Reply from 2001:db8:acad:3::2: time<1ms
+
+Ping statistics for 2001:db8:acad:3::2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 8ms, Average = 2ms
+
+C:\Users\user>ping 2001:db8:acad:4::1
+
+Pinging 2001:db8:acad:4::1 with 32 bytes of data:
+Reply from 2001:db8:acad:4::1: time<1ms
+Reply from 2001:db8:acad:4::1: time=1ms
+Reply from 2001:db8:acad:4::1: time<1ms
+Reply from 2001:db8:acad:4::1: time<1ms
+
+Ping statistics for 2001:db8:acad:4::1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 1ms, Average = 0ms
+
+C:\Users\user>ping 2001:db8:acad:4::2
+
+Pinging 2001:db8:acad:4::2 with 32 bytes of data:
+Reply from 2001:db8:acad:4::2: time=8ms
+Reply from 2001:db8:acad:4::2: time=1ms
+Reply from 2001:db8:acad:4::2: time=1ms
+Reply from 2001:db8:acad:4::2: time=1ms
+
+Ping statistics for 2001:db8:acad:4::2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 8ms, Average = 2ms
+
+C:\Users\user>ping 2001:db8:acad:5::1
+
+Pinging 2001:db8:acad:5::1 with 32 bytes of data:
+Reply from 2001:db8:acad:5::1: time=1ms
+Reply from 2001:db8:acad:5::1: time<1ms
+Reply from 2001:db8:acad:5::1: time=1ms
+Reply from 2001:db8:acad:5::1: time=1ms
+
+Ping statistics for 2001:db8:acad:5::1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 1ms, Average = 0ms
+
+C:\Users\user>ping 2001:db8:acad:5::2
+
+Pinging 2001:db8:acad:5::2 with 32 bytes of data:
+Reply from 2001:db8:acad:5::2: time=8ms
+Reply from 2001:db8:acad:5::2: time=1ms
+Reply from 2001:db8:acad:5::2: time=1ms
+Reply from 2001:db8:acad:5::2: time=1ms
+
+Ping statistics for 2001:db8:acad:5::2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 8ms, Average = 2ms
+
+C:\Users\user>ping 2001:db8:acad:6::1
+
+Pinging 2001:db8:acad:6::1 with 32 bytes of data:
+Reply from 2001:db8:acad:6::1: time=1ms
+Reply from 2001:db8:acad:6::1: time=1ms
+Reply from 2001:db8:acad:6::1: time=1ms
+Reply from 2001:db8:acad:6::1: time=1ms
+
+Ping statistics for 2001:db8:acad:6::1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 1ms, Average = 1ms
+
+C:\Users\user>ping 2001:db8:acad:6::2
+
+Pinging 2001:db8:acad:6::2 with 32 bytes of data:
+Reply from 2001:db8:acad:6::2: time=5ms
+Reply from 2001:db8:acad:6::2: time=1ms
+Reply from 2001:db8:acad:6::2: time=1ms
+Reply from 2001:db8:acad:6::2: time=1ms
+
+Ping statistics for 2001:db8:acad:6::2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 5ms, Average = 2ms
+
+C:\Users\user>ping 2001:db8:acad:7::1
+
+Pinging 2001:db8:acad:7::1 with 32 bytes of data:
+Reply from 2001:db8:acad:7::1: time=1ms
+Reply from 2001:db8:acad:7::1: time=1ms
+Reply from 2001:db8:acad:7::1: time=1ms
+Reply from 2001:db8:acad:7::1: time=1ms
+
+Ping statistics for 2001:db8:acad:7::1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 1ms, Average = 1ms
+
+C:\Users\user>ping 2001:db8:acad:7::2
+
+Pinging 2001:db8:acad:7::2 with 32 bytes of data:
+Reply from 2001:db8:acad:7::2: time=4ms
+Reply from 2001:db8:acad:7::2: time=1ms
+Reply from 2001:db8:acad:7::2: time=1ms
+Reply from 2001:db8:acad:7::2: time=1ms
+
+Ping statistics for 2001:db8:acad:7::2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 4ms, Average = 1ms
