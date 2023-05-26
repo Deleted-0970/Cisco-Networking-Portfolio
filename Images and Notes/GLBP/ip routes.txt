@@ -1,0 +1,85 @@
+GLBP Active:
+R1#show glbp active
+GigabitEthernet0/0/0 - Group 2
+  State is Active
+    1 state change, last state change 00:05:53
+  Virtual IP address is 10.0.1.254
+  Hello time 3 sec, hold time 10 sec
+    Next hello sent in 2.432 secs
+  Redirect time 600 sec, forwarder time-out 14400 sec
+  Preemption enabled, min delay 0 sec
+  Active is local
+  Standby is 10.0.1.2, priority 120 (expires in 8.000 sec)
+  Priority 150 (configured)
+  Weighting 100 (default 100), thresholds: lower 1, upper 100
+  Load balancing: round-robin
+  Group members:
+    00f8.2c7f.7190 (10.0.1.2)
+    b4a8.b947.8e40 (10.0.1.1) local
+  There are 2 forwarders (1 active)
+  Forwarder 1
+    State is Active
+      1 state change, last state change 00:05:41
+    MAC address is 0007.b400.0201 (default)
+    Owner ID is b4a8.b947.8e40
+    Redirection enabled
+    Preemption enabled, min delay 30 sec
+    Active is local, weighting 100
+    Arp replies sent: 5
+  Forwarder 2
+    State is Listen
+    MAC address is 0007.b400.0202 (learnt)
+    Owner ID is 00f8.2c7f.7190
+    Redirection enabled, 598.016 sec remaining (maximum 600 sec)
+    Time to live: 14398.016 sec (maximum 14400 sec)
+    Preemption enabled, min delay 30 sec
+    Active is 10.0.1.2 (primary), weighting 100 (expires in 9.056 sec)
+    Arp replies sent: 3
+
+GLBP standby:
+R1#show glbp standby
+GigabitEthernet0/0/1 - Group 1
+  State is Standby
+    1 state change, last state change 00:10:42
+  Virtual IP address is 10.0.0.254
+  Hello time 3 sec, hold time 10 sec
+    Next hello sent in 0.864 secs
+  Redirect time 600 sec, forwarder time-out 14400 sec
+  Preemption enabled, min delay 0 sec
+  Active is 10.0.0.2, priority 120 (expires in 9.088 sec)
+  Standby is local
+  Priority 120 (configured)
+  Weighting 100 (default 100), thresholds: lower 1, upper 100
+  Load balancing: round-robin
+  Group members:
+    00f8.2c7f.7191 (10.0.0.2)
+    b4a8.b947.8e41 (10.0.0.1) local
+  There are 2 forwarders (1 active)
+  Forwarder 1
+    State is Listen
+    MAC address is 0007.b400.0101 (learnt)
+    Owner ID is 00f8.2c7f.7191
+    Time to live: 14397.728 sec (maximum 14400 sec)
+    Preemption enabled, min delay 30 sec
+    Active is 10.0.0.2 (primary), weighting 100 (expires in 9.696 sec)
+  Forwarder 2
+    State is Active
+      1 state change, last state change 00:10:45
+    MAC address is 0007.b400.0102 (default)
+    Owner ID is b4a8.b947.8e41
+    Preemption enabled, min delay 30 sec
+    Active is local, weighting 100
+
+R1:
+      10.0.0.0/8 is variably subnetted, 4 subnets, 2 masks
+C        10.0.0.0/24 is directly connected, GigabitEthernet0/0/1
+L        10.0.0.1/32 is directly connected, GigabitEthernet0/0/1
+C        10.0.1.0/24 is directly connected, GigabitEthernet0/0/0
+L        10.0.1.1/32 is directly connected, GigabitEthernet0/0/0
+
+R2:
+      10.0.0.0/8 is variably subnetted, 4 subnets, 2 masks
+C        10.0.0.0/24 is directly connected, GigabitEthernet0/0/1
+L        10.0.0.2/32 is directly connected, GigabitEthernet0/0/1
+C        10.0.1.0/24 is directly connected, GigabitEthernet0/0/0
+L        10.0.1.2/32 is directly connected, GigabitEthernet0/0/0
