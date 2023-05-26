@@ -1,0 +1,190 @@
+hostname r6
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!
+no aaa new-model
+!
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+ipv6 unicast-routing
+multilink bundle-name authenticated
+!
+!
+!
+crypto pki trustpoint TP-self-signed-4144679456
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-4144679456
+ revocation-check none
+ rsakeypair TP-self-signed-4144679456
+!
+!
+crypto pki certificate chain TP-self-signed-4144679456
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 34313434 36373934 3536301E 170D3232 31313130 31383032
+  30325A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D34 31343436
+  37393435 36308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201
+  0A028201 0100A832 52F38549 AF78B1EA 14008DFF FD2B06BD 20E6DC0C BC69D311
+  CC0C194A D93F5091 96DCCFD8 CA5CAB4D 8A4989E6 704EE787 E83C861D D3DB3730
+  559CF5F6 BCBACB2D D6E517B2 6A3A184E 3855F2D6 414C4DE0 5BCFE617 F919C9A6
+  7CD084F4 063CB550 C8ED1C13 2BD463EA B7DFCE95 4FA8F535 E6A66174 1B5B1613
+  5CFA7CED BF096D9A 86413C66 D9CEDA10 7D555EDD 65295778 23CE80BC D744C731
+  F4243908 A3571967 878C3DB2 3AAB6022 80C22135 5C69CE0D 0A4BD734 A24B706C
+  DA3CF0BB 173152FD 414F3607 828E784E E4065B8A CE5A6339 DDF8A286 960EFB80
+  9777DBB6 A777E03E FBB6E87E 3EE4B847 D5E60D3E AB9C65EB 9C81A1EA BB728B89
+  8CE838B5 E5C10203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF
+  301F0603 551D2304 18301680 14A22D2F 62ABEE6C DA395BD3 9E6403AD 3DD8FE07
+  A0301D06 03551D0E 04160414 A22D2F62 ABEE6CDA 395BD39E 6403AD3D D8FE07A0
+  300D0609 2A864886 F70D0101 05050003 82010100 79E72647 85466836 51558896
+  3420C465 9D9D2857 42A72769 64D93E17 2E94E6ED 189C8E94 38D12550 64330C8D
+  006CB795 2BA9CABE 81CCCCC2 EEC09611 279B1447 3FEC547E 9118AFE3 327BB074
+  6414C44F 8BA5B3D5 4D9CF15A 193A6BCA CD228016 EE57B5CB FE15C7F4 A5EC6C55
+  728C8B43 217210CC 0FE58CDA 535A2006 B635EE97 E3E885BF 3CEF158A C358E6A4
+  A807A1FA A426F07A 8CF82F1D A52DCAE2 55B48744 BDDE2940 01ED1FFC 3CD0E1D2
+  6EC18C45 2927CADD 5967C7A8 EBA9FEF7 94C0D6E3 3C09014D 9E84560E 46659300
+  414A6A7A 83CBC86D 7ACEBCC9 85287BF9 FB4DD5C3 9FAC3B9F 9734277C E2DCB9D8
+  09E60172 78C26404 F2263B5D 3A4D3F81 10CE8C65
+        quit
+!
+license udi pid ISR4321/K9 sn FLM2408005M
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+!
+redundancy
+ mode none
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 192.168.6.1 255.255.255.0
+ ipv6 address 2001:DB8:6::1/64
+ ipv6 enable
+ ipv6 eigrp 20
+!
+interface GigabitEthernet0/0/0
+ ip address 10.1.1.25 255.255.255.252
+ negotiation auto
+ ipv6 address FE80::1 link-local
+ ipv6 address 2001:DB8:ACAD:7::1/64
+ ipv6 enable
+ ipv6 eigrp 20
+!
+interface GigabitEthernet0/0/1
+ ip address 10.1.1.22 255.255.255.252
+ negotiation auto
+ ipv6 address FE80::2 link-local
+ ipv6 address 2001:DB8:ACAD:6::2/64
+ ipv6 enable
+ ipv6 eigrp 20
+!
+interface GigabitEthernet0/2/0
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet0/2/1
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet0
+ vrf forwarding Mgmt-intf
+ no ip address
+ shutdown
+ negotiation auto
+!
+!
+router eigrp 20
+ network 10.1.1.20 0.0.0.3
+ network 10.1.1.24 0.0.0.3
+ network 10.1.1.28 0.0.0.3
+ network 192.168.6.0
+ redistribute bgp 300 metric 10000 100 255 1 1500
+ eigrp router-id 6.6.6.6
+!
+router bgp 300
+ bgp router-id 6.6.6.6
+ bgp log-neighbor-changes
+ no bgp default ipv4-unicast
+ neighbor 10.1.1.21 remote-as 200
+ neighbor 2001:DB8:ACAD:6::1 remote-as 200
+ !
+ address-family ipv4
+  network 10.1.1.20
+  redistribute eigrp 20
+  neighbor 10.1.1.21 activate
+ exit-address-family
+ !
+ address-family ipv6
+  redistribute eigrp 20
+  network 2001:DB8:6::/64
+  network 2001:DB8:ACAD:6::/64
+  network 2001:DB8:ACAD:7::/64
+  neighbor 2001:DB8:ACAD:6::1 activate
+ exit-address-family
+!
+ip forward-protocol nd
+no ip http server
+ip http authentication local
+no ip http secure-server
+ip tftp source-interface GigabitEthernet0
+!
+!
+ipv6 router eigrp 20
+ eigrp router-id 6.6.6.6
+ redistribute bgp 300 metric 10000 100 255 1 1500
+!
+!
+!
+!
+!
+control-plane
+!
+!
+line con 0
+ transport input none
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ login
+!
+!
+!
+!
+!
+!
+end

@@ -1,0 +1,177 @@
+
+hostname r7
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+
+!
+!
+!
+login on-success log
+ipv6 unicast-routing
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+multilink bundle-name authenticated
+!
+!
+!
+crypto pki trustpoint TP-self-signed-187689846
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-187689846
+ revocation-check none
+ rsakeypair TP-self-signed-187689846
+!
+!
+crypto pki certificate chain TP-self-signed-187689846
+ certificate self-signed 01
+  3082032E 30820216 A0030201 02020101 300D0609 2A864886 F70D0101 05050030
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 31383736 38393834 36301E17 0D323231 31303331 38303233
+  365A170D 33303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3138 37363839
+  38343630 82012230 0D06092A 864886F7 0D010101 05000382 010F0030 82010A02
+  82010100 BF6070C6 927A845F 5894218F 7CCB640D FA6B7780 F0005270 135E9D62
+  88939C7A B6579E7E 0BA8E197 5C639A72 44ACFF57 DE42AA8B 63FD62CC A1723ED1
+  518D9A8E 5CFA19A2 48E1BB86 7EA2F966 68F5021E FD2A9FFB 8DF3DC8E 04011B5A
+  A4DA788D A4A616CB DEF37103 6B0B9925 94E851D6 E5C220B0 EBFC20AE 9EEA2360
+  AAE9ABEE E558ADFB 829868A9 7C70E354 FB9DAEE5 BF2F942E BF6306A8 0E691189
+  B00FF095 60EB3671 09F9EE6E A1A1C394 F2D0188A 070C3D34 8C310598 5AB10508
+  2BCC6504 D97F10E4 5EF18340 34B0F75B 10CD02E1 851F9AB9 085C94E7 F09969F3
+  D66115A2 74612E4A 522010B5 CE41E9EF 1F268695 8AEF2B13 0C80995F F06C4717
+  BCC71E91 02030100 01A35330 51300F06 03551D13 0101FF04 05300301 01FF301F
+  0603551D 23041830 1680144F F7019371 95BDC04C FE229FE7 027E514B 04BE8830
+  1D060355 1D0E0416 04144FF7 01937195 BDC04CFE 229FE702 7E514B04 BE88300D
+  06092A86 4886F70D 01010505 00038201 010091FF BA855D0C 6D4BBCF3 B5786F90
+  6C2AF12B A9B8718F 92C61351 78123DD8 D997CA01 27A9E8C9 BC099E99 0218E9C7
+  CF81E531 D0529D91 7992562D 4127F2CD AA10EF3B 4C04D6D7 8011656E 34869E34
+  A65972A4 6619D717 386ECD00 D2943A71 60F28C41 07F34E95 389F27EB DBDA9E49
+  D66CDC6C 3BEFEDD4 F7E8F9EB 987B2932 DC72AE1D BCEE0869 845D1FB3 71008F6E
+  8BCEB0B8 F6361836 723C92F7 1F96E26F 979FB2B6 66863DD2 54C16BC7 FEEEE2E3
+  53A3E649 65DC9703 2AF2694B 57DC506F 723C6A30 2511D827 C2AF458C 14666E90
+  78A2CB78 D3494080 2D41245C CC58B9DD 5634C67F 067C4557 2F8EA3F7 E0F5A52B
+  89226F82 E70195A9 8D64910C 5D13DBD1 7387
+        quit
+license udi pid ISR4321/K9 sn FDO214421BU
+!
+spanning-tree extend system-id
+!
+!
+redundancy
+ mode none
+!
+!
+vlan internal allocation policy ascending
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 192.168.7.1 255.255.255.0
+ ipv6 address 2001:DB8:7::1/64
+ ipv6 enable
+ ipv6 eigrp 20
+!
+interface GigabitEthernet0/0/0
+ ip address 10.1.1.29 255.255.255.252
+ negotiation auto
+ ipv6 address FE80::1 link-local
+ ipv6 address 2001:DB8:ACAD:8::1/64
+ ipv6 enable
+ ipv6 eigrp 20
+!
+interface GigabitEthernet0/0/1
+ ip address 10.1.1.26 255.255.255.252
+ negotiation auto
+ ipv6 address FE80::2 link-local
+ ipv6 address 2001:DB8:ACAD:7::2/64
+ ipv6 enable
+ ipv6 eigrp 20
+!
+interface Serial0/1/0
+ no ip address
+ shutdown
+!
+interface Serial0/1/1
+ no ip address
+ shutdown
+!
+interface Service-Engine0/2/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0
+ vrf forwarding Mgmt-intf
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+!
+router eigrp 20
+ network 10.1.1.20 0.0.0.3
+ network 10.1.1.24 0.0.0.3
+ network 10.1.1.28 0.0.0.3
+ network 192.168.7.0
+ eigrp router-id 7.7.7.7
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+ip tftp source-interface GigabitEthernet0
+!
+!
+ipv6 router eigrp 20
+ eigrp router-id 7.7.7.7
+ redistribute bgp 300 metric 10000 100 255 1 1500
+!
+!
+!
+!
+control-plane
+!
+!
+line con 0
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ login
+!
+!
+end
