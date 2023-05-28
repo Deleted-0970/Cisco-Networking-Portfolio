@@ -6,7 +6,7 @@ Labs on setting up networks with Cisco protocols.
   - Cisco CCNA
 
 - Labs
-  - [OSPF] [ospf]
+  - [OSPF][ospf]
   - [Multi-area OSPF] [mospf]
   - [BGP] [bgp]
   - [iBGP] [ibgp]
