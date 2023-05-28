@@ -7,16 +7,16 @@ Labs on setting up networks with Cisco protocols.
 
 - Labs
   - [OSPF][ospf]
-  - [Multi-area OSPF] [mospf]
-  - [BGP] [bgp]
-  - [iBGP] [ibgp]
-  - [VoIP] [VoIP]
-  - [VRF] [vrf]
-  - [GLBP] [glbp]
-  - [MPLS] [mpls]
+  - [Multi-area OSPF][mospf]
+  - [BGP][bgp]
+  - [iBGP][ibgp]
+  - [VoIP][VoIP]
+  - [VRF][vrf]
+  - [GLBP][glbp]
+  - [MPLS][mpls]
 
 - Study Guides
-  - [AWS Cloud Foundations] [aws]
+  - [AWS Cloud Foundations][aws]
 
 - Other Experience
   - Wireshark
