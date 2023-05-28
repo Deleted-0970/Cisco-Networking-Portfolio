@@ -6,28 +6,28 @@ Labs on setting up networks with Cisco protocols.
   - Cisco CCNA
 
 - Labs
-  - OSPF [OSPF]
-  - Multi-area OSPF [MOSPF]
-  - BGP [BGP]
-  - iBGP [IBGP]
-  - VoIP [VoIP]
-  - VRF [VRF]
-  - GLBP [GLBP]
-  - MPLS [MPLS]
+  - [OSPF] [ospf]
+  - [Multi-area OSPF] [mospf]
+  - [BGP] [bgp]
+  - [iBGP] [ibgp]
+  - [VoIP] [VoIP]
+  - [VRF] [vrf]
+  - [GLBP] [glbp]
+  - [MPLS] [mpls]
 
 - Study Guides
-  - AWS Cloud Foundations [AWS]
+  - [AWS Cloud Foundations] [aws]
 
 - Other Experience
   - Wireshark
   - Virtual Box
   - Linux
-[OSPF]: https://github.com/Deleted-0970/Cisco-Networking-Portfolio/blob/main/Writeups/5%20router%20ospf%20v2.docx
-[MOSPF]:
-[BGP]:
-[IBGP]:
-[VoIP]:
-[VRF]:
-[GLBP]:
-[MPLS]:
-[AWS]:
+[ospf]: https://github.com/Deleted-0970/Cisco-Networking-Portfolio/blob/main/Writeups/5%20router%20ospf%20v2.docx
+[mospf]:
+[bgp]:
+[ibgp]:
+[voip]:
+[vrf]:
+[glbp]:
+[mpls]:
+[aws]:
