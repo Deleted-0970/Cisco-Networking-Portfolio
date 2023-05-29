@@ -1,6 +1,9 @@
 # Cisco-Networking-Portfolio
 Labs on setting up networks with Cisco protocols. 
 
+## <ins>Complete Network Adminstration Portfolio</ins>
+ - [Complete Portfolio][COMPLETE]
+
 ## <ins>Experience</ins>
 - Certifications
   - Cisco CCNA
@@ -34,3 +37,4 @@ Labs on setting up networks with Cisco protocols.
 [glbp]: https://github.com/Deleted-0970/Cisco-Networking-Portfolio/tree/main/Writeups/GLBP.docx
 [mpls]: https://github.com/Deleted-0970/Cisco-Networking-Portfolio/tree/main/Writeups/MPLS.docx
 [aws]: https://github.com/Deleted-0970/Cisco-Networking-Portfolio/tree/main/Writeups/AWS%20Cloud%20Foundations%201-6.docx
+[COMPLETE]: https://github.com/Deleted-0970/Cisco-Networking-Portfolio/tree/main/Writeups/Complete%20Portfolio.docx
