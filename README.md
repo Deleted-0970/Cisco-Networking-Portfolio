@@ -6,7 +6,7 @@ Labs on setting up networks with Cisco protocols.
 
 ## <ins>Experience</ins>
 - Certifications
-  - Cisco CCNA
+  - [Cisco CCNA][CCNA]
 
 - Labs
   - [OSPF][ospf]
@@ -38,3 +38,4 @@ Labs on setting up networks with Cisco protocols.
 [mpls]: https://github.com/Deleted-0970/Cisco-Networking-Portfolio/tree/main/Writeups/MPLS.docx
 [aws]: https://github.com/Deleted-0970/Cisco-Networking-Portfolio/tree/main/Writeups/AWS%20Cloud%20Foundations%201-6.docx
 [COMPLETE]: https://github.com/Deleted-0970/Cisco-Networking-Portfolio/tree/main/Writeups/Complete%20Portfolio.docx
+[CCNA]: https://www.credly.com/users/derek-liu.03023687/badges
